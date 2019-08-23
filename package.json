@@ -1,10 +1,13 @@
 {
-  "name": "frontend-project-lvl1",
+  "name": "frontend-project-lvl-1",
   "version": "1.0.0",
   "description": "",
   "bin": {
-    "brain-games": "src/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/AlSerP/frontend-project-lvl1/issues"
   },
-  "homepage": "https://github.com/AlSerP/frontend-project-lvl1#readme"
+  "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+  "prepublishOnly": "npm run build",
+  "homepage": "https://github.com/AlSerP/frontend-project-lvl1#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
+  }
 }
