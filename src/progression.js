@@ -1,4 +1,3 @@
-const readlineSync = require("readline-sync");
 const getRandomNum = (max) => Math.round(Math.random() * max);
 
 exports.rules = "What numder is missing in the progresion?\n\n";

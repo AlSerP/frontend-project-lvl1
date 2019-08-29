@@ -8,9 +8,11 @@ start-calc:
 	npx babel-node src/bin/brain-calc.js
 start-progression:
 	npx babel-node src/bin/brain-progression.js
+start-prime:
+	npx babel-node src/bin/brain-prime.js
 babel-collect:
 	npx babel src --out-dir dist
 publish:
 	npm publish --dry-run
 lint:
-	npx eslint node_modules/.bin/eslint
+	npx eslint node_modules/.bin/eslint src/

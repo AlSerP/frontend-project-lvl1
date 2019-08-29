@@ -6,7 +6,7 @@ exports.startGame = (rules = "\n") => {
 
     const name = readlineSync.question("May I have your name? ");
     console.log("Hello, " + name + "!");
-    console.log("\n")
+    console.log("\n");
 
     return name;
 };

@@ -1,4 +1,3 @@
-const readlineSync = require("readline-sync");
 const getRandomNum = (max) => Math.round(Math.random() * max);
 
 exports.rules = "Answer \"yes\" if number even otherwise answer \"no\".\n\n";

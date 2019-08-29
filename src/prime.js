@@ -1,4 +1,3 @@
-const readlineSync = require("readline-sync");
 const getRandomNum = (max) => Math.round(Math.random() * max);
 
 exports.rules = "Answer \"yes\" if number prime. Otherwise answer \"no\".\n\n";
