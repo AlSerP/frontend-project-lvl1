@@ -12,4 +12,4 @@ const quizTextGenerator = (quizBody) => {
 };
 const troothGenerator = (quizBody) => {
     return quizBody % 2 === 0 ? "yes" : "no";
-}
+};

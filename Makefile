@@ -6,6 +6,8 @@ start-even:
 	npx babel-node src/bin/brain-even.js
 start-calc:
 	npx babel-node src/bin/brain-calc.js
+start-progression:
+	npx babel-node src/bin/brain-progression.js
 babel-collect:
 	npx babel src --out-dir dist
 publish:
