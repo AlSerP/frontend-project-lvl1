@@ -1,9 +1,8 @@
 #!/usr/bin/env node
-const prime = require("../prime");
+const prime = require("../games/prime");
 const game = require("..");
-const logic = require("../game");
 
 const name = game.startGame(prime.rules);
 
-logic.asker(name, prime);
+game.asker(name, prime);
 game.endGame(name);
