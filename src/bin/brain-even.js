@@ -4,5 +4,5 @@ const game = require("..");
 
 const name = game.startGame(even.rules);
 
-game.asker(name, even);
-game.endGame(name);
+const result = game.asker(name, calc);
+game.endGame(name, result);

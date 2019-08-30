@@ -4,5 +4,5 @@ const game = require("..");
 
 const name = game.startGame(prime.rules);
 
-game.asker(name, prime);
-game.endGame(name);
+const result = game.asker(name, calc);
+game.endGame(name, result);;

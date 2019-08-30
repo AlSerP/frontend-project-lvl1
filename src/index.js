@@ -10,8 +10,8 @@ exports.startGame = (rules = "\n") => {
 
     return name;
 };
-exports.endGame = (name) => {
-    console.log("Congredulations, " + name + "!");
+exports.endGame = (name, result) => {
+    result ? console.log("Congredulations, " + name + "!") : NaN;
 };
 
 const wrongAnswer = (name, trooth, answer) => {
@@ -34,5 +34,9 @@ const quiz = (name, type) => {
 };
 exports.asker = (name, type) => {
     let i = 0;
-    while (i < 3) i = (i + 1) * quiz(name, type); // score counter
+    while (i < 3) {
+        if (!quiz(name, type)) return 0;
+        i += 1; // score counter
+    };
+    return 1;
 };
