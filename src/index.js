@@ -37,6 +37,6 @@ exports.asker = (name, type) => {
     while (i < 3) {
         if (!quiz(name, type)) return 0;
         i += 1; // score counter
-    };
+    }
     return 1;
 };
