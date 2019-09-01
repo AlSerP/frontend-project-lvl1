@@ -6,6 +6,9 @@
 ## Setup
 https://asciinema.org/a/jKSwyriibOR1EjxAspmkt65Q7
 
+## Game process
+https://asciinema.org/a/EJQ7ZYTnzhgDSNXqwxmLhnq4V/
+
 ## Start game
 
 Brain-even:
