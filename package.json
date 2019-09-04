@@ -14,7 +14,9 @@
     "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -30,8 +32,6 @@
   "bugs": {
     "url": "https://github.com/AlSerP/frontend-project-lvl1/issues"
   },
-  "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
-  "prepublishOnly": "npm run build",
   "homepage": "https://github.com/AlSerP/frontend-project-lvl1#readme",
   "devDependencies": {
     "@babel/cli": "^7.5.5",
