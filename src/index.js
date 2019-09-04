@@ -1,8 +1,8 @@
 var readlineSync = require("readline-sync");
 
-exports.gameStarter = (gameType = '') => {
+exports.gameStarter = (gameType = "") => {
     const name = userWelcome(gameType.rules);
-    if (gameType === '') return 0;
+    if (gameType === "") return 0;
     const result = asker(name, gameType);
     endGame(name, result);
 };
