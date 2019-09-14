@@ -1,10 +1,10 @@
-const getRandomNum = (max) => Math.round(Math.random() * max);
+const RandomNum = require("../modules/getRandomNum")
 
 exports.rules = "Answer \"yes\" if number even otherwise answer \"no\".\n\n";
 
 exports.quizGenerator = () => {
-    const body =  getRandomNum(100);
-    return [quizTextGenerator(body), troothGenerator(body)];
+    const quizBody = RandomNum.getRandomNum(1, 100);
+    return [quizTextGenerator(quizBody), troothGenerator(quizBody)];
 };
 const quizTextGenerator = (quizBody) => {
     return quizBody;

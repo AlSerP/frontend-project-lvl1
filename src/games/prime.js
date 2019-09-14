@@ -1,10 +1,10 @@
-const getRandomNum = (max) => Math.round(Math.random() * max);
+const RandomNum = require("../modules/getRandomNum")
 
 exports.rules = "Answer \"yes\" if number prime. Otherwise answer \"no\".\n\n";
 
 exports.quizGenerator = () => {
-    const body = getRandomNum(100);
-    return [quizTextGenerator(body), String(troothGenerator(body))];
+    const body = RandomNum.getRandomNum(0, 100);
+    return [quizTextGenerator(quizBody), String(troothGenerator(quizBody))];
 };
 const quizTextGenerator = (quizBody) => {
     return String(quizBody);

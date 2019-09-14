@@ -1,11 +1,11 @@
-const getRandomNum = (max) => Math.round(Math.random() * max);
+const RandomNum = require("../modules/getRandomNum")
 
 exports.rules = "What is the result of this expression?\n\n";
 
 exports.quizGenerator = () => {
     const items = ["+", "-", "*"];
-    const body = [getRandomNum(50), items[getRandomNum(items.length-1)], getRandomNum(50)];
-    return [quizTextGenerator(body), String(troothGenerator(body))];
+    const quizBody = [RandomNum.getRandomNum(0, 50), items[RandomNum.getRandomNum(0, items.length-1)], RandomNum.getRandomNum(0, 50)];
+    return [quizTextGenerator(quizBody), String(troothGenerator(quizBody))];
 };
 const quizTextGenerator = (quizBody) => {
     return quizBody[0] + " " + quizBody[1] + " " + quizBody[2];

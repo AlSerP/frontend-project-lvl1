@@ -1,10 +1,10 @@
-const getRandomNum = (max) => Math.round(Math.random() * max);
+const RandomNum = require("../modules/getRandomNum")
 
 exports.rules = "Find the greatest common divisor of given numbers.\n\n";
 
 exports.quizGenerator = () => {
-    const body = [getRandomNum(50), getRandomNum(50)];
-    return [quizTextGenerator(body), String(troothGenerator(body))];
+    const quizBody = [RandomNum.getRandomNum(0, 50), RandomNum.getRandomNum(0, 50)];
+    return [quizTextGenerator(quizBody), String(troothGenerator(quizBody))];
 };
 const quizTextGenerator = (quizBody) => {
     return quizBody[0] + " " + quizBody[1];

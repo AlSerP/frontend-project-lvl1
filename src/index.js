@@ -31,7 +31,7 @@ const rightAnswer = () => {
     return 1;
 };  
 
-const quiz = (name, gameLogic) => {
+const quizAsk = (name, gameLogic) => {
     let trooth, quizText;
     [quizText, trooth] = gameLogic.quizGenerator(); // [text, trooth]
     console.log("Question: " + quizText);
@@ -42,7 +42,7 @@ const quiz = (name, gameLogic) => {
 const asker = (name, game) => {
     let i = 0;
     while (i < 3) {
-        if (!quiz(name, game)) return 0;
+        if (!quizAsk(name, game)) return 0;
         i += 1; // score counter
     }
     return 1;

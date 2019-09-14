@@ -1,11 +1,11 @@
-const getRandomNum = (max) => Math.round(Math.random() * max);
+const RandomNum = require("../modules/getRandomNum")
 
 exports.rules = "What numder is missing in the progresion?\n\n";
 
 exports.quizGenerator = () => {
     const progresionLength = 10;
-    const body = [getRandomNum(50), getRandomNum(9) + 1, getRandomNum(progresionLength-1)]; // [progressionBeginig, step, hiddenNumber]
-    return [quizTextGenerator(body, progresionLength), String(troothGenerator(body))];
+    const quizBody = [RandomNum.getRandomNum(0, 50), RandomNum.getRandomNum(0, 9) + 1, RandomNum.getRandomNum(0, progresionLength-1)]; // [progressionBeginig, step, hiddenNumber]
+    return [quizTextGenerator(quizBody, progresionLength), String(troothGenerator(quizBody))];
 };
 const quizTextGenerator = (quizBody, progresionLength) => {
     let quizText = "";
