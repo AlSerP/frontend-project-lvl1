@@ -1,4 +1,4 @@
-const RandomNum = require("../modules/getRandomNum")
+const RandomNum = require("../modules/getRandomNum");
 
 exports.rules = "Answer \"yes\" if number even otherwise answer \"no\".\n\n";
 

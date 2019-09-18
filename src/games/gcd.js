@@ -1,4 +1,4 @@
-const RandomNum = require("../modules/getRandomNum")
+const RandomNum = require("../modules/getRandomNum");
 
 exports.rules = "Find the greatest common divisor of given numbers.\n\n";
 

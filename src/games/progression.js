@@ -1,4 +1,4 @@
-const RandomNum = require("../modules/getRandomNum")
+const RandomNum = require("../modules/getRandomNum");
 
 exports.rules = "What numder is missing in the progresion?\n\n";
 

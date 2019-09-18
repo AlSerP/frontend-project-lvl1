@@ -1,9 +1,9 @@
-const RandomNum = require("../modules/getRandomNum")
+const RandomNum = require("../modules/getRandomNum");
 
 exports.rules = "Answer \"yes\" if number prime. Otherwise answer \"no\".\n\n";
 
 exports.quizGenerator = () => {
-    const body = RandomNum.getRandomNum(0, 100);
+    const quizBody = RandomNum.getRandomNum(0, 100);
     return [quizTextGenerator(quizBody), String(troothGenerator(quizBody))];
 };
 const quizTextGenerator = (quizBody) => {
