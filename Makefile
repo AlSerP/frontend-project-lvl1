@@ -17,4 +17,4 @@ babel-collect:
 publish:
 	npm publish --dry-run
 lint:
-	npx eslint */*.js
+	npx eslint .
