@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const progression = require("../games/progression");
-const game = require("..");
+const game = require("../games/progression");
 
-game.gameStarter(progression);
+game.gameStart();

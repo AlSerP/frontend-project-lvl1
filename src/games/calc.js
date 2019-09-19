@@ -1,10 +1,12 @@
-const RandomNum = require("../modules/getRandomNum");
+const randoNum = require("../modules/getRandomNum");
+const engine = require("../")
 
-exports.rules = "What is the result of this expression?\n\n";
+exports.gameStart = () => engine.gameStarter(rules, quizGenerator); 
 
-exports.quizGenerator = () => {
+const rules = "What is the result of this expression?\n\n";
+const quizGenerator = () => {
     const items = ["+", "-", "*"];
-    const quizBody = [RandomNum.getRandomNum(0, 50), items[RandomNum.getRandomNum(0, items.length-1)], RandomNum.getRandomNum(0, 50)];
+    const quizBody = [randoNum.getRandomNum(0, 50), items[randoNum.getRandomNum(0, items.length-1)], randoNum.getRandomNum(0, 50)];
     return [quizTextGenerator(quizBody), String(troothGenerator(quizBody))];
 };
 const quizTextGenerator = (quizBody) => {

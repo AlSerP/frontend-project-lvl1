@@ -1,9 +1,9 @@
 var readlineSync = require("readline-sync");
 
-exports.gameStarter = (gameType = "") => {
-    const name = userWelcome(gameType.rules);
-    if (gameType === "") return 0;
-    const result = asker(name, gameType);
+exports.gameStarter = (rules = "\n", quizBody) => {
+    const name = userWelcome(rules);
+    if (rules === "\n") return 0;
+    const result = asker(name, quizBody);
     endGame(name, result);
 };
 
@@ -13,7 +13,6 @@ const userWelcome = (rules = "\n") => {
 
     const name = readlineSync.question("May I have your name? ");
     console.log("Hello, " + name + "!");
-    console.log("\n");
 
     return name;
 };
@@ -31,18 +30,19 @@ const rightAnswer = () => {
     return 1;
 };  
 
-const quizAsk = (name, gameLogic) => {
+const quizAsk = (name, quizBodyCreate) => {
     let trooth, quizText;
-    [quizText, trooth] = gameLogic.quizGenerator(); // [text, trooth]
+    [quizText, trooth] = quizBodyCreate(); // [text, trooth]
     console.log("Question: " + quizText);
     const answer = readlineSync.question("Your answer: ");
     
     return answer === trooth ? rightAnswer() : wrongAnswer(name, trooth, answer);
 };
-const asker = (name, game) => {
+const asker = (name, quizBody) => {
+    console.log("\n");
     let i = 0;
     while (i < 3) {
-        if (!quizAsk(name, game)) return 0;
+        if (!quizAsk(name, quizBody)) return 0;
         i += 1; // score counter
     }
     return 1;

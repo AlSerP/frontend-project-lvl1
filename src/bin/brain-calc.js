@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const calc = require("../games/calc");
-const game = require("..");
+const game = require("../games/calc");
 
-game.gameStarter(calc);
+game.gameStart();

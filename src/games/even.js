@@ -1,9 +1,11 @@
-const RandomNum = require("../modules/getRandomNum");
+const randomNum = require("../modules/getRandomNum");
+const engine = require("../");
 
-exports.rules = "Answer \"yes\" if number even otherwise answer \"no\".\n\n";
+exports.gameStart = () => engine.gameStarter(rules, quizGenerator); 
 
-exports.quizGenerator = () => {
-    const quizBody = RandomNum.getRandomNum(1, 100);
+const rules = "Answer \"yes\" if number even otherwise answer \"no\".\n\n";
+const quizGenerator = () => {
+    const quizBody = randomNum.getRandomNum(1, 100);
     return [quizTextGenerator(quizBody), troothGenerator(quizBody)];
 };
 const quizTextGenerator = (quizBody) => {

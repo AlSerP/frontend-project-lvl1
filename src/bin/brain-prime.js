@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const prime = require("../games/prime");
-const game = require("..");
+const game = require("../games/prime");
 
-game.gameStarter(prime);
+game.gameStart();

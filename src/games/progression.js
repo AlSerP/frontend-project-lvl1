@@ -1,10 +1,12 @@
-const RandomNum = require("../modules/getRandomNum");
+const randomNum = require("../modules/getRandomNum");
+const engine = require("../");
 
-exports.rules = "What numder is missing in the progresion?\n\n";
+exports.gameStart = () => engine.gameStarter(rules, quizGenerator);
 
-exports.quizGenerator = () => {
+const rules = "What numder is missing in the progresion?\n\n";
+const quizGenerator = () => {
     const progresionLength = 10;
-    const quizBody = [RandomNum.getRandomNum(0, 50), RandomNum.getRandomNum(0, 9) + 1, RandomNum.getRandomNum(0, progresionLength-1)]; // [progressionBeginig, step, hiddenNumber]
+    const quizBody = [randomNum.getRandomNum(0, 50), randomNum.getRandomNum(0, 9) + 1, randomNum.getRandomNum(0, progresionLength-1)]; // [progressionBeginig, step, hiddenNumber]
     return [quizTextGenerator(quizBody, progresionLength), String(troothGenerator(quizBody))];
 };
 const quizTextGenerator = (quizBody, progresionLength) => {
