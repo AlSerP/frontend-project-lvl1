@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-const game = require("../games/progression");
+import {gameStart} from "../games/progression";
 
-game.gameStart();
+gameStart()

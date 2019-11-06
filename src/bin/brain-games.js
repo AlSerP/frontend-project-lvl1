@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-const game = require("..");
+import {quizStart} from '../index';
 
-game.gameStarter();
+quizStart()

@@ -1,24 +1,21 @@
-const randoNum = require("../modules/getRandomNum");
-const engine = require("../")
+import {getRandomNum} from "../modules/getRandomNum";
+import {quizStart} from "../";
 
-exports.gameStart = () => engine.gameStarter(rules, quizGenerator); 
+exports.gameStart = () => quizStart(description, questionGenerate); 
 
-const rules = "What is the result of this expression?\n\n";
-const quizGenerator = () => {
-    const items = ["+", "-", "*"];
-    const quizBody = [randoNum.getRandomNum(0, 50), items[randoNum.getRandomNum(0, items.length-1)], randoNum.getRandomNum(0, 50)];
-    return [quizTextGenerator(quizBody), String(troothGenerator(quizBody))];
+const description = "What is the result of this expression?\n\n";
+const questionGenerate = () => {
+    const mathOperations = ["+", "-", "*"];
+    const question = [getRandomNum(0, 50), mathOperations[getRandomNum(0, mathOperations.length-1)], getRandomNum(0, 50)];
+    return [question[0] + " " + question[1] + " " + question[2], String(calcResult(question[0], question[2], question[1]))];
 };
-const quizTextGenerator = (quizBody) => {
-    return quizBody[0] + " " + quizBody[1] + " " + quizBody[2];
-};
-const troothGenerator = (quizBody) => {
-    switch (quizBody[1]) {
+const calcResult = (num1, num2, operation) => {
+    switch (operation) {
         case "+":
-            return quizBody[0] + quizBody[2];
+            return num1 + num2;
         case "-":
-                return quizBody[0] - quizBody[2];
+                return num1 - num2;
         case "*":
-                return quizBody[0] * quizBody[2];
+                return num1 * num2;
     }
 };

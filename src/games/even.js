@@ -1,16 +1,13 @@
-const randomNum = require("../modules/getRandomNum");
-const engine = require("../");
+import {getRandomNum} from "../modules/getRandomNum";
+import {quizStart} from "../";
 
-exports.gameStart = () => engine.gameStarter(rules, quizGenerator); 
+exports.gameStart = () => quizStart(description, questionGenerate); 
 
-const rules = "Answer \"yes\" if number even otherwise answer \"no\".\n\n";
-const quizGenerator = () => {
-    const quizBody = randomNum.getRandomNum(1, 100);
-    return [quizTextGenerator(quizBody), troothGenerator(quizBody)];
+const description = "Answer \"yes\" if number even otherwise answer \"no\".\n\n";
+const questionGenerate = () => {
+    const question = getRandomNum(1, 100);
+    return [question, isEven(question)];
 };
-const quizTextGenerator = (quizBody) => {
-    return quizBody;
-};
-const troothGenerator = (quizBody) => {
-    return quizBody % 2 === 0 ? "yes" : "no";
+const isEven = (num) => {
+    return num % 2 === 0 ? "yes" : "no";
 };

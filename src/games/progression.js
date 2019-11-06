@@ -1,22 +1,22 @@
-const randomNum = require("../modules/getRandomNum");
-const engine = require("../");
+import {getRandomNum} from "../modules/getRandomNum";
+import {quizStart} from "../";
 
-exports.gameStart = () => engine.gameStarter(rules, quizGenerator);
+exports.gameStart = () => quizStart(description, questionGenerate);
 
-const rules = "What numder is missing in the progresion?\n\n";
-const quizGenerator = () => {
+const description = "What numder is missing in the progresion?\n\n";
+const questionGenerate = () => {
     const progresionLength = 10;
-    const quizBody = [randomNum.getRandomNum(0, 50), randomNum.getRandomNum(0, 9) + 1, randomNum.getRandomNum(0, progresionLength-1)]; // [progressionBeginig, step, hiddenNumber]
-    return [quizTextGenerator(quizBody, progresionLength), String(troothGenerator(quizBody))];
+    const question = [getRandomNum(0, 50), getRandomNum(0, 9) + 1, getRandomNum(0, progresionLength-1)]; // [progressionBeginig, step, hiddenNumberId]
+    return [questionTextGenerate(question, progresionLength), String(hiddenNumberFind(question[0], question[1], question[2]))];
 };
-const quizTextGenerator = (quizBody, progresionLength) => {
-    let quizText = "";
+const questionTextGenerate = (question, progresionLength) => {
+    let questionText = "";
     for (let i = 0; i < progresionLength; i++) {
-        if (i == quizBody[2]) quizText += "... "; 
-        else quizText += quizBody[0] + (quizBody[1] * i) + " ";
+        if (i == question[2]) questionText += "... "; 
+        else questionText += question[0] + (question[1] * i) + " ";
     }
-    return quizText;
+    return questionText;
 };
-const troothGenerator = (quizBody) => {
-    return quizBody[0] + (quizBody[1] * quizBody[2]);
+const hiddenNumberFind = (progressionBeginig, step, hiddenNumberId) => {
+    return progressionBeginig + (hiddenNumberId * step);
 };

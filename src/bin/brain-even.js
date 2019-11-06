@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-const game = require("../games/even");
+import {gameStart} from "../games/even";
 
-game.gameStart();
+gameStart()

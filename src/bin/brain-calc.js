@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-const game = require("../games/calc");
+import { gameStart } from "../games/calc";
 
-game.gameStart();
+gameStart()

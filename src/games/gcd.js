@@ -1,23 +1,18 @@
-const randomNum = require("../modules/getRandomNum");
-const engine = require("../");
+import {getRandomNum} from "../modules/getRandomNum";
+import {quizStart} from "../";
 
-exports.gameStart = () => engine.gameStarter(rules, quizGenerator); 
+exports.gameStart = () => quizStart(description, questionGenerate); 
 
-const rules = "Find the greatest common divisor of given numbers.\n\n";
-const quizGenerator = () => {
-    const quizBody = [randomNum.getRandomNum(0, 50), randomNum.getRandomNum(0, 50)];
-    return [quizTextGenerator(quizBody), String(troothGenerator(quizBody))];
+const description = "Find the greatest common divisor of given numbers.\n\n";
+const questionGenerate = () => {
+    const question = [getRandomNum(0, 50), getRandomNum(0, 50)];
+    return [question[0] + " " + question[1], String(gcdFind(question[0], question[1]))];
 };
-const quizTextGenerator = (quizBody) => {
-    return quizBody[0] + " " + quizBody[1];
-};
-const troothGenerator = (quizBody) => {
-    const gcd = function(a, b) {
-        if (!b) {
-            return a;
-        }
-    
-        return gcd(b, a % b);
-    };
-    return gcd(quizBody[0], quizBody[1]);    
+
+const gcdFind = function(num1, num2) {
+    if (!num2) {
+        return num1;
+    }
+
+    return gcdFind(num2, num1 % num2);
 };
