@@ -1,21 +1,25 @@
 import {getRandomNum} from "../modules/getRandomNum";
-import {quizStart} from "../";
+import {playQuiz} from "../";
 
-exports.gameStart = () => quizStart(description, questionGenerate); 
+exports.startGame = () => playQuiz(description, generateQuizAndResult); 
 
-const description = "What is the result of this expression?\n\n";
-const questionGenerate = () => {
-    const mathOperations = ["+", "-", "*"];
-    const question = [getRandomNum(0, 50), mathOperations[getRandomNum(0, mathOperations.length-1)], getRandomNum(0, 50)];
-    return [question[0] + " " + question[1] + " " + question[2], String(calcResult(question[0], question[2], question[1]))];
+const mathOperations = ["+", "-", "*"];
+const description = "What is the result of this expression?";
+
+const generateQuizAndResult = () => {
+    const num1 = getRandomNum(0, 50), 
+        num2 = getRandomNum(0, 50), 
+        operation = mathOperations[getRandomNum(0, mathOperations.length-1)];
+    
+    return [num1 + " " + operation + " " + num2, String(calcResult(num1, num2, operation))];
 };
 const calcResult = (num1, num2, operation) => {
     switch (operation) {
         case "+":
             return num1 + num2;
         case "-":
-                return num1 - num2;
+            return num1 - num2;
         case "*":
-                return num1 * num2;
+            return num1 * num2;
     }
 };

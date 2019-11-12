@@ -1,10 +1,10 @@
 import {getRandomNum} from "../modules/getRandomNum";
-import {quizStart} from "../";
+import {playQuiz} from "../";
 
-exports.gameStart = () => quizStart(description, questionGenerate);
+exports.startGame = () => playQuiz(description, generateQuizAndResult);
 
-const description = "Answer \"yes\" if number prime. Otherwise answer \"no\".\n\n";
-const questionGenerate = () => {
+const description = "Answer \"yes\" if number prime. Otherwise answer \"no\".";
+const generateQuizAndResult = () => {
     const question = getRandomNum(0, 100);
     return [String(question), String(isPrime(question))];
 };

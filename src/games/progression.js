@@ -1,13 +1,16 @@
 import {getRandomNum} from "../modules/getRandomNum";
-import {quizStart} from "../";
+import {playQuiz} from "../";
 
-exports.gameStart = () => quizStart(description, questionGenerate);
+exports.startGame = () => playQuiz(description, generateQuizAndResult);
 
-const description = "What numder is missing in the progresion?\n\n";
-const questionGenerate = () => {
+const description = "What numder is missing in the progresion?";
+const generateQuizAndResult = () => {
     const progresionLength = 10;
-    const question = [getRandomNum(0, 50), getRandomNum(0, 9) + 1, getRandomNum(0, progresionLength-1)]; // [progressionBeginig, step, hiddenNumberId]
-    return [questionTextGenerate(question, progresionLength), String(hiddenNumberFind(question[0], question[1], question[2]))];
+    const progressionBeginig = getRandomNum(0, 50),
+        progresionStep = getRandomNum(0, 9) + 1,
+        hiddenNumberId = getRandomNum(0, progresionLength-1);
+
+    return [questionTextGenerate([progressionBeginig, progresionStep, hiddenNumberId], progresionLength), String(progressionBeginig + (hiddenNumberId * progresionStep))];
 };
 const questionTextGenerate = (question, progresionLength) => {
     let questionText = "";
@@ -16,7 +19,4 @@ const questionTextGenerate = (question, progresionLength) => {
         else questionText += question[0] + (question[1] * i) + " ";
     }
     return questionText;
-};
-const hiddenNumberFind = (progressionBeginig, step, hiddenNumberId) => {
-    return progressionBeginig + (hiddenNumberId * step);
 };
