@@ -1,15 +1,14 @@
-import {getRandomNum} from "../modules/getRandomNum";
-import {playQuiz} from "../";
+import getRandomNum from "../modules/getRandomNum";
+import playQuiz from "../";
 
-exports.startGame = () => playQuiz(description, generateQuizAndResult); 
+export default function startGame () { playQuiz(description, generateQuiz) } 
 
 const description = "Answer \"yes\" if number even otherwise answer \"no\".";
-const generateQuizAndResult = () => {
+const generateQuiz = () => {
     const question = getRandomNum(1, 100);
-    const rightAnswer = isEven(question) ? "yes" : "no";
+    const answer = isEven(question) ? "yes" : "no";
 
-    return [question, rightAnswer];
+    return [question, answer];
 };
-const isEven = (num) => {
-    return num % 2 === 0 ? 1 : 0;
-};
+
+const isEven = (num) => num % 2 === 0 ? true : false;

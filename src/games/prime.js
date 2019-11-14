@@ -1,16 +1,19 @@
-import {getRandomNum} from "../modules/getRandomNum";
-import {playQuiz} from "../";
+import getRandomNum from "../modules/getRandomNum";
+import playQuiz from "../";
 
-exports.startGame = () => playQuiz(description, generateQuizAndResult);
+export default function startGame () { playQuiz(description, generateQuiz) }
 
 const description = "Answer \"yes\" if number prime. Otherwise answer \"no\".";
-const generateQuizAndResult = () => {
+const generateQuiz = () => {
     const question = getRandomNum(0, 100);
-    return [String(question), String(isPrime(question))];
+    const answer = isPrime(question) ? "yes" : "no";
+
+    return [String(question), answer];
 };
 
 const isPrime = function(num) {
-    for (let i = 2; i <= num; i++){
-        if (num % i === 0) return i === num ? "yes" : "no";
-    }
+    for (let i = 2; i <= num; i++){ 
+        if (num % i === 0) 
+            return i === num ? true : false; 
+    } 
 }; 

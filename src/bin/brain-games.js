@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import {playQuiz} from '../index';
+import playQuiz from '../index';
 
 playQuiz()
