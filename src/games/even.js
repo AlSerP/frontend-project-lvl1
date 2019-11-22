@@ -1,7 +1,8 @@
 import getRandomNum from "../modules/getRandomNum";
-import playQuiz from "../";
+import playQuiz from "..";
 
-export default function startGame () { playQuiz(description, generateQuiz) } 
+const startGame = () => playQuiz(description, generateQuiz);
+export default startGame;
 
 const description = "Answer \"yes\" if number even otherwise answer \"no\".";
 const generateQuiz = () => {

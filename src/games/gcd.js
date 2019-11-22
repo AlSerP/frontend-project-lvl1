@@ -1,7 +1,9 @@
 import getRandomNum from "../modules/getRandomNum";
-import playQuiz from "../";
+import playQuiz from "..";
 
-export default function startGame () { playQuiz(description, generateQuiz) }
+const startGame = () => playQuiz(description, generateQuiz);
+
+export default startGame;
 
 const description = "Find the greatest common divisor of given numbers.";
 const generateQuiz = () => {
@@ -14,7 +16,7 @@ const generateQuiz = () => {
     return [question, answer];
 };
 
-const gcdFind = function(num1, num2) {
+const gcdFind = (num1, num2) => {
     if (!num2) {
         return num1;
     }
