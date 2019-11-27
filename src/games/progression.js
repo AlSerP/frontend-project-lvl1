@@ -1,28 +1,29 @@
 import getRandomNum from "../modules/getRandomNum";
-import playQuiz from "..";
+import playGame from "..";
 
-const startGame = () => { playQuiz(description, generateQuiz) };
+const startGame = () => { playGame(description, generateQuiz) };
 
-export default startGame;
-
+const progresionLength = 10;
 const description = "What numder is missing in the progresion?";
 const generateQuiz = () => {
     const progresionLength = 10;
-    const progressionBeginig = getRandomNum(0, 50);
+    const progressionBeginning = getRandomNum(0, 50);
     const progresionStep = getRandomNum(1, 10);
-    const unknownNumber = getRandomNum(0, progresionLength-1);
+    const unknownElement = getRandomNum(0, progresionLength-1);
 
-    const question = generateQuestionText([progressionBeginig, progresionStep, unknownNumber], progresionLength);
-    const answer = String(progressionBeginig + (unknownNumber * progresionStep));
+    const question = generateQuestionText(progressionBeginning, progresionStep, unknownElement, progresionLength);
+    const answer = String(progressionBeginning + (unknownElement * progresionStep));
 
     return [question, answer];
 };
 
-const generateQuestionText = (progressionParametrs, progresionLength) => {
+const generateQuestionText = (progressionBeginning, progresionStep, unknownElement, progresionLength) => {
     let questionText = "";
     for (let i = 0; i < progresionLength; i++) {
-        if (i == progressionParametrs[2]) questionText += "... "; 
-        else questionText += progressionParametrs[0] + (progressionParametrs[1] * i) + " ";
+        if (i == unknownElement) questionText += "... "; 
+        else questionText += progressionBeginning + (progresionStep * i) + " ";
     }
     return questionText;
 };
+
+export default startGame;

@@ -1,19 +1,18 @@
 import getRandomNum from "../modules/getRandomNum";
-import playQuiz from "..";
+import playGame from "..";
 
-const startGame = () => playQuiz(description, generateQuiz);
+const startGame = () => playGame(description, generateQuiz);
 
-export default startGame;
-
-const mathOperations = [" + ", " - ", " * "];
+const mathOperations = ["+", "-", "*"];
 const description = "What is the result of this expression?";
 
 const generateQuiz = () => {
     const num1 = getRandomNum(0, 50);
+    let question = num1 + ' ';
     const num2 = getRandomNum(0, 50); 
     const operation = mathOperations[getRandomNum(0, mathOperations.length-1)];
 
-    const question = num1 + operation + num2;
+    question += operation + ' ' + num2;
     const answer = String(calcResult(num1, num2, operation));
     
     return [question, answer];
@@ -21,11 +20,13 @@ const generateQuiz = () => {
 
 const calcResult = (num1, num2, operation) => {
     switch (operation) {
-        case " + ":
+        case "+":
             return num1 + num2;
-        case " - ":
+        case "-":
             return num1 - num2;
-        case " * ":
+        case "*":
             return num1 * num2;
     }
 };
+
+export default startGame;

@@ -1,8 +1,7 @@
 import getRandomNum from "../modules/getRandomNum";
-import playQuiz from "..";
+import playGame from "..";
 
-const startGame = () => playQuiz(description, generateQuiz);
-export default startGame;
+const startGame = () => playGame(description, generateQuiz);
 
 const description = "Answer \"yes\" if number even otherwise answer \"no\".";
 const generateQuiz = () => {
@@ -13,3 +12,5 @@ const generateQuiz = () => {
 };
 
 const isEven = (num) => num % 2 === 0 ? true : false;
+
+export default startGame;

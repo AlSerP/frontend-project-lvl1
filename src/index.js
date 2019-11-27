@@ -1,8 +1,8 @@
 import {question} from "readline-sync";
 
-const quizRounds = 3;
+const roundsCount = 3;
 
-const playQuiz = (description = "", gameQuestion) => {
+const playGame = (description = "", gameQuestion) => {
     console.log("Welcome to the Brain Games!");
     console.log(description + "\n\n");
     const name = question("May I have your name? ");
@@ -12,9 +12,8 @@ const playQuiz = (description = "", gameQuestion) => {
 
     console.log("\n");
     let isWin = true;
-    for (let roundNum = 0; roundNum < quizRounds; roundNum++) {
-        let trooth, quizText;
-        [quizText, trooth] = gameQuestion(); // [text, trooth]
+    for (let roundNum = 0; roundNum < roundsCount; roundNum++) {
+        const [quizText, trooth] = gameQuestion();
         console.log("Question: " + quizText);
         const answer = question("Your answer: ").toLowerCase();
         
@@ -29,10 +28,13 @@ const playQuiz = (description = "", gameQuestion) => {
             isRight = 0;
         }
         
-        if (!isRight) isWin = false, roundNum = 3;
+        if (!isRight) {
+            isWin = false;
+            break;
+        }
     }
 
     isWin ? console.log("Congredulations, " + name + "!") : NaN;
 }
 
-export default playQuiz;
+export default playGame;
