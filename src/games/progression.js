@@ -6,7 +6,6 @@ const startGame = () => { playGame(description, generateQuiz) };
 const progresionLength = 10;
 const description = "What numder is missing in the progresion?";
 const generateQuiz = () => {
-    const progresionLength = 10;
     const progressionBeginning = getRandomNum(0, 50);
     const progresionStep = getRandomNum(1, 10);
     const unknownElement = getRandomNum(0, progresionLength-1);
