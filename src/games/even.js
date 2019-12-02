@@ -11,6 +11,6 @@ const generateQuiz = () => {
     return [question, answer];
 };
 
-const isEven = (num) => num % 2 === 0 ? true : false;
+const isEven = (num) => num % 2 === 0;
 
 export default startGame;

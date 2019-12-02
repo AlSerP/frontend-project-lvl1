@@ -8,11 +8,10 @@ const description = "What is the result of this expression?";
 
 const generateQuiz = () => {
     const num1 = getRandomNum(0, 50);
-    let question = num1 + ' ';
     const num2 = getRandomNum(0, 50); 
     const operation = mathOperations[getRandomNum(0, mathOperations.length-1)];
 
-    question += operation + ' ' + num2;
+    const question = `${num1} ${operation} ${num2}`;
     const answer = String(calcResult(num1, num2, operation));
     
     return [question, answer];

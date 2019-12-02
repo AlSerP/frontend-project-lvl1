@@ -12,23 +12,17 @@ const playGame = (description = "", gameQuestion) => {
 
     console.log("\n");
     let isWin = true;
-    for (let roundNum = 0; roundNum < roundsCount; roundNum++) {
+    for (let i = 0; i < roundsCount; i++) {
         const [quizText, trooth] = gameQuestion();
         console.log("Question: " + quizText);
         const answer = question("Your answer: ").toLowerCase();
         
-        let isRight = 0; 
         if (answer === trooth) {
             console.log("Correct");
-            isRight = 1;
         }
         else {
             console.log("\"" + answer + "\" is wrong answer ;(. Correct answer was \"" + trooth + "\".");
             console.log("Let's try again, " + name + "!");
-            isRight = 0;
-        }
-        
-        if (!isRight) {
             isWin = false;
             break;
         }

@@ -8,21 +8,22 @@ const description = "What numder is missing in the progresion?";
 const generateQuiz = () => {
     const progressionBeginning = getRandomNum(0, 50);
     const progresionStep = getRandomNum(1, 10);
-    const unknownElement = getRandomNum(0, progresionLength-1);
+    const unknownElementIndex = getRandomNum(0, progresionLength-1);
 
-    const question = generateQuestionText(progressionBeginning, progresionStep, unknownElement, progresionLength);
-    const answer = String(progressionBeginning + (unknownElement * progresionStep));
+    const question = generateQuestionText(progressionBeginning, progresionStep, unknownElementIndex, progresionLength);
+    const answer = String(progressionBeginning + (unknownElementIndex * progresionStep));
 
     return [question, answer];
 };
 
-const generateQuestionText = (progressionBeginning, progresionStep, unknownElement, progresionLength) => {
+const generateQuestionText = (progressionBeginning, progresionStep, unknownElementIndex, progresionLength) => {
     let questionText = "";
     for (let i = 0; i < progresionLength; i++) {
-        if (i == unknownElement) questionText += "... "; 
+        if (i == unknownElementIndex) questionText += "... "; 
         else questionText += progressionBeginning + (progresionStep * i) + " ";
     }
-    return questionText;
+    
+    return questionText.slice(0, -1);
 };
 
 export default startGame;
