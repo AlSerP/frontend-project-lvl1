@@ -1,11 +1,11 @@
 import getRandomNum from "../modules/getRandomNum";
 import playGame from "..";
 
-const startGame = () => { playGame(description, generateQuiz) };
+const startGame = () => playGame(description, generateQuestion);
 
 const progresionLength = 10;
 const description = "What numder is missing in the progresion?";
-const generateQuiz = () => {
+const generateQuestion = () => {
     const progressionBeginning = getRandomNum(0, 50);
     const progresionStep = getRandomNum(1, 10);
     const unknownElementIndex = getRandomNum(0, progresionLength-1);
@@ -19,8 +19,8 @@ const generateQuiz = () => {
 const generateQuestionText = (progressionBeginning, progresionStep, unknownElementIndex, progresionLength) => {
     let questionText = "";
     for (let i = 0; i < progresionLength; i++) {
-        if (i == unknownElementIndex) questionText += "... "; 
-        else questionText += progressionBeginning + (progresionStep * i) + " ";
+        if (i == unknownElementIndex) questionText += `${questionText} ... `; 
+        else questionText = `${questionText} ${progressionBeginning + progresionStep * i} `;
     }
     
     return questionText.slice(0, -1);

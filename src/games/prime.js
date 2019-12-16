@@ -1,10 +1,10 @@
 import getRandomNum from "../modules/getRandomNum";
 import playGame from "..";
 
-const startGame = () => playGame(description, generateQuiz);
+const startGame = () => playGame(description, generateQuestion);
 
 const description = "Answer \"yes\" if number prime. Otherwise answer \"no\".";
-const generateQuiz = () => {
+const generateQuestion = () => {
     const question = getRandomNum(1, 100);
     const answer = isPrime(question) ? "yes" : "no";
 

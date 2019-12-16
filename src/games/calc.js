@@ -1,12 +1,12 @@
 import getRandomNum from "../modules/getRandomNum";
 import playGame from "..";
 
-const startGame = () => playGame(description, generateQuiz);
+const startGame = () => playGame(description, generateQuestion);
 
 const mathOperations = ["+", "-", "*"];
 const description = "What is the result of this expression?";
 
-const generateQuiz = () => {
+const generateQuestion = () => {
     const num1 = getRandomNum(0, 50);
     const num2 = getRandomNum(0, 50); 
     const operation = mathOperations[getRandomNum(0, mathOperations.length-1)];

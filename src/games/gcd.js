@@ -1,14 +1,14 @@
 import getRandomNum from "../modules/getRandomNum";
 import playGame from "..";
 
-const startGame = () => playGame(description, generateQuiz);
+const startGame = () => playGame(description, generateQuestion);
 
 const description = "Find the greatest common divisor of given numbers.";
-const generateQuiz = () => {
+const generateQuestion = () => {
     const num1 = getRandomNum(0, 50);
     const num2 = getRandomNum(0, 50);
 
-    const question = num1 + " " + num2;
+    const question = `${num1} ${num2}`;
     const answer = String(findGcd(num1, num2));
 
     return [question, answer];
