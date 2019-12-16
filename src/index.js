@@ -9,7 +9,6 @@ const playGame = (description = "", generateQuestion) => {
     console.log(`Hello, ${name}!`);
 
     console.log("\n");
-    let isWin = true;
     for (let i = 0; i < roundsCount; i++) {
         const [quizText, trooth] = generateQuestion();
         console.log(`Question: ${quizText}`);
@@ -21,12 +20,11 @@ const playGame = (description = "", generateQuestion) => {
         else {
             console.log(`"${answer}" is wrong answer ;(. Correct answer was "${trooth}".`);
             console.log(`Let's try again, ${name}!`);
-            isWin = false;
             break;
         }
     }
 
     console.log(`Congredulations, ${name}!`);
-}
+};
 
 export default playGame;
