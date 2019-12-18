@@ -10,6 +10,6 @@ module.exports = {
     'ecmaVersion': 6
   },
   'rules': {
-    "semi": "error"
+    "no-console": 0
   },
 };
