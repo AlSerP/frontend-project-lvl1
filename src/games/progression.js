@@ -1,26 +1,26 @@
 import getRandomNum from "../modules/getRandomNum";
 import playGame from "..";
 
-const startGame = () => playGame(description, generateQuestion);
+const startGame = () => playGame(description, generateQuestionAndAnswer);
 
-const progresionLength = 10;
+const length = 10;
 const description = "What numder is missing in the progresion?";
-const generateQuestion = () => {
-    const progressionBeginning = getRandomNum(0, 50);
-    const progresionStep = getRandomNum(1, 10);
-    const unknownElementIndex = getRandomNum(0, progresionLength-1);
+const generateQuestionAndAnswer = () => {
+    const beginning = getRandomNum(0, 50);
+    const step = getRandomNum(1, 10);
+    const unknownElementIndex = getRandomNum(0, length-1);
 
-    const question = generateQuestionText(progressionBeginning, progresionStep, unknownElementIndex, progresionLength);
-    const answer = String(progressionBeginning + (unknownElementIndex * progresionStep));
+    const question = generateQuestion(beginning, step, unknownElementIndex, length);
+    const answer = String(beginning + (unknownElementIndex * step));
 
     return [question, answer];
 };
 
-const generateQuestionText = (progressionBeginning, progresionStep, unknownElementIndex, progresionLength) => {
+const generateQuestion = (beginning, step, unknownElementIndex, length) => {
     let questionText = "";
-    for (let i = 0; i < progresionLength; i++) {
-        if (i == unknownElementIndex) questionText += `${questionText} ... `; 
-        else questionText = `${questionText} ${progressionBeginning + progresionStep * i} `;
+    for (let i = 0; i < length; i++) {
+        if (i == unknownElementIndex) questionText = `${questionText} ... `; 
+        else questionText = `${questionText} ${beginning + step * i} `;
     }
     
     return questionText.slice(0, -1);

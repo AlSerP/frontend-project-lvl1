@@ -1,10 +1,10 @@
 import getRandomNum from "../modules/getRandomNum";
 import playGame from "..";
 
-const startGame = () => playGame(description, generateQuestion);
+const startGame = () => playGame(description, generateQuestionAndAnswer);
 
 const description = "Answer \"yes\" if number even otherwise answer \"no\".";
-const generateQuestion = () => {
+const generateQuestionAndAnswer = () => {
     const question = getRandomNum(1, 100);
     const answer = isEven(question) ? "yes" : "no";
 

@@ -1,10 +1,10 @@
 import getRandomNum from "../modules/getRandomNum";
 import playGame from "..";
 
-const startGame = () => playGame(description, generateQuestion);
+const startGame = () => playGame(description, generateQuestionAndAnswer);
 
 const description = "Find the greatest common divisor of given numbers.";
-const generateQuestion = () => {
+const generateQuestionAndAnswer = () => {
     const num1 = getRandomNum(0, 50);
     const num2 = getRandomNum(0, 50);
 
