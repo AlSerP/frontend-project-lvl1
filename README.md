@@ -2,7 +2,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/58106cc97b19590f62c2/maintainability)](https://codeclimate.com/github/AlSerP/frontend-project-lvl1/maintainability)
 [![Build Status](https://travis-ci.org/AlSerP/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/AlSerP/frontend-project-lvl1)
 
-## Installing
+## Copy project
 ```bash
 git clone https://github.com/AlSerP
 ```
