@@ -11,30 +11,35 @@ https://asciinema.org/a/EJQ7ZYTnzhgDSNXqwxmLhnq4V/
 ## Start game
 
 Brain-even:
+There you should answer "yes" if number even otherwise answer "no"
 
 ```bash
 brain-even
 ```
 
 Brain-calc:
+Calc the result of this expression
 
 ```bash
 brain-calc
 ```
 
 Brain-gcd:
+Find the greatest common divisor of given numbers
 
 ```bash
 brain-gcd
 ```
 
 Brain-prime:
+There you should answer "yes" if number prime. Otherwise answer "no"
 
 ```bash
 brain-prime
 ```
 
 Brain-progression:
+Find the numder thar is missed in the progresion
 
 ```bash
 brain-progression
